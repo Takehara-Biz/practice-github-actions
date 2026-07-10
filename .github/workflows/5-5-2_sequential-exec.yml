@@ -1,0 +1,22 @@
+name: Sequential Jobs
+on: push
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 3 && echo "First!"
+  second-a:
+    runs-on: ubuntu-latest
+    needs: first
+    steps:
+      - run: sleep 3 && echo "Second-A!"
+  second-b:
+    runs-on: ubuntu-latest
+    needs: first
+    steps:
+      - run: sleep 3 && echo "Second-B!"
+  third:
+    runs-on: ubuntu-latest
+    needs: [second-a, second-b]
+    steps:
+      - run: sleep 3 && echo "Third!"
