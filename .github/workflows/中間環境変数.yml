@@ -4,25 +4,16 @@ on: push
 env:
     EXAMPLE: Defined by workflow level
 jobs:
-    use-context:
+    print-context:
         runs-on: ubuntu-latest
         steps:
             - name: GITHUB_OUTPUTに値を埋め込む
               id : my_id
               run: echo "my_key=pwd" >> $GITHUB_OUTPUT
-            - name: 安全に参照する
+            - name: 直に参照する（危険）
               run: "${{ steps.my_id.outputs.my_key }}"
-            - name: 直に参照する（危険）
-              run: ${{ steps.my_id.outputs.my_key }}
-    use-env:
-        runs-on: ubuntu-latest
-        steps:
-            - name: GITHUB_OUTPUTに値を埋め込む
-              id : my_id
-              run: echo "MY_VAR=pwd" >> $GITHUB_ENV
             - name: 安全に参照する
-              run: "${MY_VAR}"
-            - name: 直に参照する（危険）
-              run: ${MY_VAR}
-
+              env:
+                MY_ENV: ${{ steps.my_id.outputs.my_key }}
+              run: "${ MY_ENV }"
     
