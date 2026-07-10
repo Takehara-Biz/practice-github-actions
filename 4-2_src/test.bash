@@ -1,3 +1,3 @@
 #!/bin/bash
-
-node ./target.test.js
+# expect that the current working directory is the root of this repository.
+node 4-2_src/target.test.js
