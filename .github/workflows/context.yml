@@ -5,4 +5,9 @@ jobs:
     print-context:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "This actor is ${{ github.actor }}, and Run ID is ${{ github.run_id }}."
+            - run: echo "github.actor - ${{ github.actor }}"
+            - run: echo "github.run_id - ${{ github.run_id }}"
+            - run: echo "github.head_ref - ${{ github.head_ref }}"
+            - run: echo "github.event - ${{ github.event }}"
+            - run: echo "github.event.push - ${{ github.event.pusher }}"
+            - run: echo "github.event.pusher.name - ${{ github.event.pusher.name }}"
