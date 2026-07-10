@@ -26,9 +26,9 @@ jobs:
           echo "4"
       - name: "マスキング"
         run: |
-          echo "${PASSWORD} is not masked"
+          echo "${PASSWORD} will not be masked"
           echo "::add-mask::${PASSWORD}"
-          echo "${PASSWORD} is not masked"
+          echo "From now, ${PASSWORD} will be masked"
         env:
           PASSWORD: abc
       - name: "アノテーション"
