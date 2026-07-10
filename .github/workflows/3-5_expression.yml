@@ -1,0 +1,17 @@
+name: expression
+description: 様々なexpressionを試すワークフロー
+on: push
+jobs:
+  practice-expression:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ contains('Hello', 'll') }}"
+      - run: echo "${{ format('##{0}#{1}###', 'aaa', 'bbb') }}"
+      - run: echo "${{ github }}"
+      - run: echo "${{ toJSON(github) }}"
+      - if: ${{ contains('a', 'a') }}
+        run: echo "結果がtrueなので、このステップは実行される"
+      - if: ${{ contains('a', 'b') }}
+        run: echo "結果がfalseなので、このステップは実行されない"
+      - run: echo "runを先に書いてみた"
+        if: ${{ contains('a', 'a') }}
