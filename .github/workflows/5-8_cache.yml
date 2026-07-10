@@ -10,8 +10,8 @@ jobs:
           key: key123 # キャッシュキー
           path: ${{ github.workspace }}/cache123          # キャッシュ対象のパス
       - run: |
-          if [[ -f "${GITHUB_WORKSPACE}/dummy" ]]; then exit 0; fi
-          dd if=/dev/urandom of="${GITHUB_WORKSPACE}/dummy" bs=1M count=1
-          sleep 10
-          echo "waited 10 sec"
-      - run: ls -lh "${GITHUB_WORKSPACE}/dummy"
+          if [[ -f "${GITHUB_WORKSPACE}/cache123" ]]; then exit 0; fi
+          dd if=/dev/urandom of="${GITHUB_WORKSPACE}/cache123" bs=1M count=1
+          sleep 5
+          echo "waited 5 sec"
+      - run: ls -lh "${GITHUB_WORKSPACE}/cache123"
