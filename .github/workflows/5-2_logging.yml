@@ -25,10 +25,9 @@ jobs:
           echo "3"
           echo "::endgroup::"
           echo "4"
-      - run: |
-          echo "::add-mask::${PASSWORD}"
-          echo "${PASSWORD} is not masked"
-          echo "::add-mask::A raw string will not be masked"
+      - run: echo "::add-mask::${PASSWORD}"
+      - run: echo "${PASSWORD} is not masked"
+      - run: echo "::add-mask::A raw string will not be masked"
       - name: "アノテーション"
         run: |
           echo "::error::This is an error, also shown in Annotions area."
