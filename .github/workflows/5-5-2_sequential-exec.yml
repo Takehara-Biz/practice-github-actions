@@ -1,4 +1,5 @@
 name: Sequential Jobs
+description: ジョブを逐次実行するデモ
 on: push
 jobs:
   first:
