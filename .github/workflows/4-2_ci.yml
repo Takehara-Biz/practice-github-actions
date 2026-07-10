@@ -8,4 +8,4 @@ jobs:
       - uses: actions/checkout@v4
       - run: pwd
       - run: ls
-      - run: node src/target.test.js
+      - run: node 4-2_src/test.bash

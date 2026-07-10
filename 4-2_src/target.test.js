@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { add } = require('./math');
+const { add } = require('./target');
 
 test('2つの数値を足し合わせる', () => {
     // add(1, 2) の結果が 3 であることを検証
