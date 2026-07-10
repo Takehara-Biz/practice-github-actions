@@ -1,0 +1,14 @@
+name: JS Action
+on: push
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/js-action-sample
+        id: js
+        with:
+          who-to-great: 'Taro'
+      - run: echo "${TIME}"
+        env:
+          TIME: ${{ steps.js.outputs.time }}
