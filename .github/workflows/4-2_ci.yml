@@ -1,0 +1,10 @@
+name: CI
+description: Node.jsのプログラムのCI用ワークフロー
+on: push
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pwd
+      - run: ls
+      - run: node src/target.test.js
