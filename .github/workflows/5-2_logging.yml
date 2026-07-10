@@ -4,8 +4,6 @@ on: push
 jobs:
   logging:
     runs-on: ubuntu-latest
-    env:
-      PASSWORD: abc
     steps:
       - run: echo "Hello, world"
       - run: echo "::debug::This is a debug log"
@@ -27,10 +25,12 @@ jobs:
           echo "::endgroup::"
           echo "4"
       - name: "マスキング"
-       run: |
+        run: |
           echo "${PASSWORD} is not masked"
           echo "::add-mask::${PASSWORD}"
           echo "${PASSWORD} is not masked"
+        env:
+          PASSWORD: abc
       - name: "アノテーション"
         run: |
           echo "::error::This is an error, also shown in Annotions area."
