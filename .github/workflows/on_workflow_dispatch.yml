@@ -7,7 +7,7 @@ on:
                 default: Hello
                 required: true
                 description: A cheerful word
-            log-lovel:
+            log-level:
                 type: choice
                 options:
                     - info
