@@ -5,8 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: date > date.txt
-      - uses: actions/checkout@v4
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: uploaded-artifact
           path: date.txt
