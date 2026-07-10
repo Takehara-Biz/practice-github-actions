@@ -6,6 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: pwd
-      - run: ls
-      - run: node 4-2_src/test.bash
+      - run: ./4-2_src/test.bash
