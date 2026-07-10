@@ -1,0 +1,36 @@
+name: Context and Environment Variables
+description: Try to use context and environment variables of github actions
+on: push
+env:
+    EXAMPLE: Defined by workflow level
+jobs:
+    print-context:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "github.actor - ${{ github.actor }}"
+            - run: echo "github.run_id - ${{ github.run_id }}"
+            - run: echo "github.event_name - ${{ github.event_name }}"
+            - run: echo "github.event - ${{ github.event }}"
+            - run: echo "github.event.push - ${{ github.event.pusher }}"
+            - run: echo "github.event.pusher.name - ${{ github.event.pusher.name }}"
+    print-default-env:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "GITHUB_ACTOR - ${GITHUB_ACTOR}"
+            - run: echo "GITHUB_RUN_ID - ${GITHUB_RUN_ID}"
+            - run: echo "GITHUB_EVENT_NAME - ${GITHUB_EVENT_NAME}"
+    scope-of-env:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "${EXAMPLE}" # expects to print "Defined by workflow level"
+            - env:
+                EXAMPLE: Defined by step level
+              run: echo "${EXAMPLE}" # expects to print "Defined by step level"
+    update-env:
+        runs-on: ubuntu-latest
+        env:
+            VAR1: aaa
+        steps:
+            - run: echo "${VAR1}" # expects to print "aaa"
+            - run: echo "VAR1=bbb" >> $GITHUB_ENV
+            - run: echo "${VAR1}" # expects to print "bbb"
