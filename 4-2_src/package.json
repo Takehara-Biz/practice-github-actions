@@ -1,0 +1,18 @@
+{
+  "name": "4-2_src",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "target.js",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^9.39.4",
+    "globals": "^17.7.0"
+  },
+  "scripts": {
+    "test": "node target.test.js",
+    "lint": "eslint ."
+  }
+}

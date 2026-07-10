@@ -6,4 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: ./4-2_src/test.bash
+      - run: npm install
+      - run: cd 4-2_src && npm test
+      - run: cd 4-2_src && npm run lint
