@@ -1,0 +1,8 @@
+name: Context
+description: Try to use various contexts of github actions
+on: push
+jobs:
+    hello:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "This actor is ${{ github.actor }}, and Run ID is ${{ github.run_id }}."
