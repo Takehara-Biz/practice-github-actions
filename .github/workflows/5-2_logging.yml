@@ -9,16 +9,25 @@ jobs:
       - run: echo "::debug::This is a debug log"
       - run: |
           date
+          date
           set -x
+          date
+          date
+          set +x
+          date
           date
       - run: |
           echo "1"
-          echo "::group::This is a log group"
+          echo "::group::This is a log group (folded by default)"
           echo "2"
           echo "3"
           echo "::endgroup::"
           echo "4"
-      - run: echo "::add-mask::This value will be masked in logs"
+      - env:
+          ABC: abc
+        run: |
+          echo "::add-mask::${ABC}"
+          echo "::add-mask::A raw string will not be masked"
       - name: "アノテーション"
         run: |
           echo "::error::This is an error"
