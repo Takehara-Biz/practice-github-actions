@@ -5,7 +5,7 @@ jobs:
   logging:
     runs-on: ubuntu-latest
     env:
-      ABC: abc
+      PASSWORD: abc
     steps:
       - run: echo "Hello, world"
       - run: echo "::debug::This is a debug log"
@@ -13,7 +13,7 @@ jobs:
           date
           date
           set -x
-          date
+          date # ←このdateという命令文も表示されるようになる。
           date
           set +x
           date
@@ -26,18 +26,17 @@ jobs:
           echo "::endgroup::"
           echo "4"
       - run: |
-          echo "::add-mask::${ABC}"
+          echo "::add-mask::${PASSWORD}"
+          echo "${PASSWORD} is not masked"
           echo "::add-mask::A raw string will not be masked"
       - name: "アノテーション"
         run: |
-          echo "::error::This is an error"
-          echo "::warning::This is a warning"
-          echo "::notice::This is a notice"
-      - run: echo "::error::This is an error"
-      - run: echo "::warning::This is a warning"
-      - run: echo "::notice::This is a notice"
+          echo "::error::This is an error, also shown in Annotions area."
+          echo "::warning::This is a warning, also shown in Annotions area."
+          echo "::notice::This is a notice, also shown in Annotions area."
       - name: "ジョブサマリー"
         run: |
+          echo "The below info will be shown in logging summary area as Markdown format."
           echo "## markdown!" >> "${GITHUB_STEP_SUMMARY}"
           echo "- 1st item" >> "${GITHUB_STEP_SUMMARY}"
           echo "- 2nd item" >> "${GITHUB_STEP_SUMMARY}"
