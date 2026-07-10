@@ -4,7 +4,7 @@ jobs:
   use-js-action:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: cd .github/actions/js-action-sample && npm install
       - uses: ./.github/actions/js-action-sample
         id: js

@@ -9,7 +9,7 @@ jobs:
       run:
         working-directory: ./4-2_src
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: npm install
       - run: npm run lint
       - run: npm test
