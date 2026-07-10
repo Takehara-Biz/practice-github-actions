@@ -4,8 +4,12 @@ on: push
 jobs:
   ci:
     runs-on: ubuntu-latest
+    # ジョブ内のすべての run ステップのデフォルト作業ディレクトリを固定
+    defaults:
+      run:
+        working-directory: ./4-2_src
     steps:
       - uses: actions/checkout@v4
       - run: npm install
-      - run: cd 4-2_src && npm test
-      - run: cd 4-2_src && npm run lint
+      - run: npm test
+      - run: npm run lint
