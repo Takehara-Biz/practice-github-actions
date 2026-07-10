@@ -1,8 +1,8 @@
 name: Context
-description: Try to use various contexts of github actions
+description: Try to use various context of github actions
 on: push
 jobs:
-    hello:
+    print-context:
         runs-on: ubuntu-latest
         steps:
             - run: echo "This actor is ${{ github.actor }}, and Run ID is ${{ github.run_id }}."
