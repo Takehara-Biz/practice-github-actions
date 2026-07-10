@@ -4,6 +4,8 @@ on: push
 jobs:
   logging:
     runs-on: ubuntu-latest
+    env:
+      ABC: abc
     steps:
       - run: echo "Hello, world"
       - run: echo "::debug::This is a debug log"
@@ -23,9 +25,7 @@ jobs:
           echo "3"
           echo "::endgroup::"
           echo "4"
-      - env:
-          ABC: abc
-        run: |
+      - run: |
           echo "::add-mask::${ABC}"
           echo "::add-mask::A raw string will not be masked"
       - name: "アノテーション"
@@ -33,6 +33,9 @@ jobs:
           echo "::error::This is an error"
           echo "::warning::This is a warning"
           echo "::notice::This is a notice"
+      - run: echo "::error::This is an error"
+      - run: echo "::warning::This is a warning"
+      - run: echo "::notice::This is a notice"
       - name: "ジョブサマリー"
         run: |
           echo "## markdown!" >> "${GITHUB_STEP_SUMMARY}"
