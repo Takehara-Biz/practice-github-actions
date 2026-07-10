@@ -1,0 +1,31 @@
+name: Logging
+description: This workflow demonstrates logging in GitHub Actions.
+on: push
+jobs:
+  logging:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, world"
+      - run: echo "::debug::This is a debug log"
+      - run: |
+          date
+          set -x
+          date
+      - run: |
+          echo "1"
+          echo "::group::This is a log group"
+          echo "2"
+          echo "3"
+          echo "::endgroup::"
+          echo "4"
+      - run: echo "::add-mask::This value will be masked in logs"
+      - name: "アノテーション"
+        run: |
+          echo "::error::This is an error"
+          echo "::warning::This is a warning"
+          echo "::notice::This is a notice"
+      - name: "ジョブサマリー"
+        run: |
+          echo "## markdown!" >> "${GITHUB_STEP_SUMMARY}"
+          echo "- 1st item" >> "${GITHUB_STEP_SUMMARY}"
+          echo "- 2nd item" >> "${GITHUB_STEP_SUMMARY}"
