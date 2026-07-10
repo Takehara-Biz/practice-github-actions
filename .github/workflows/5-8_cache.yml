@@ -4,9 +4,10 @@ jobs:
   use-cache:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/cache@v4                         # キャッシュの復元と保存
         with:
-          key: abc # キャッシュキー
+          key: key123 # キャッシュキー
           path: ${{ github.workspace }}/cache123          # キャッシュ対象のパス
       - run: |
           if [[ -f "${GITHUB_WORKSPACE}/dummy" ]]; then exit 0; fi
