@@ -1,5 +1,5 @@
 name: 中間環境変数の実験
-description: インジェクションされた環境変数のスコープを確認するためのワークフロー
+description: そのまま解釈されると危険な文字列を様々な方法で参照してみたワークフロー
 on: push
 env:
     EXAMPLE: Defined by workflow level
