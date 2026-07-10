@@ -1,18 +1,16 @@
 name: 中間環境変数の実験
 description: そのまま解釈されると危険な文字列を様々な方法で参照してみたワークフロー
 on: push
-env:
-    EXAMPLE: Defined by workflow level
 jobs:
-    print-context:
-        runs-on: ubuntu-latest
-        steps:
-            - name: GITHUB_OUTPUTを利用して、危険な文字列を埋め込む。埋め込んだ文字列は、「steps.<ステップID>.outputs.<NAME>」で参照可能。
-              id : my_id
-              run: echo "my_key=\"; date; echo \"" >> $GITHUB_OUTPUT
-            - name: 直に参照する（evalのように解釈されてしまう）
-              run: echo "${{ steps.my_id.outputs.my_key }}"
-            - name: 環境変数を経由して、安全に参照する
-              env:
-                MY_ENV: ${{ steps.my_id.outputs.my_key }} #環境変数MY_ENVに、コンテキストの値を代入する。
-              run: echo "${MY_ENV}"
+  print-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GITHUB_OUTPUTを利用して、危険な文字列を埋め込む。埋め込んだ文字列は、「steps.<ステップID>.outputs.<NAME>」で参照可能。
+        id: my_id
+        run: echo "my_key=\"; date; echo \"" >> $GITHUB_OUTPUT
+      - name: 直に参照する（evalのように解釈されてしまう）
+        run: echo "${{ steps.my_id.outputs.my_key }}"
+      - name: 環境変数を経由して、安全に参照する
+        env:
+          MY_ENV: ${{ steps.my_id.outputs.my_key }} #環境変数MY_ENVに、コンテキストの値を代入する。
+        run: echo "${MY_ENV}"
