@@ -1,0 +1,18 @@
+name: 中間環境変数の実験
+description: インジェクションされた環境変数のスコープを確認するためのワークフロー
+on: push
+env:
+    EXAMPLE: Defined by workflow level
+jobs:
+    print-context:
+        runs-on: ubuntu-latest
+        steps:
+            - name: GITHUB_OUTPUTに値を埋め込む
+              id : my_id
+              run: echo "my_key=1+1" >> $GITHUB_OUTPUT
+            - name: 安全に参照する
+              run: echo "my_key is ${{ steps.my_id.outputs.my_key }}"
+            - name: 直に参照する（危険）
+              run: echo "my_key is " + ${{ steps.my_id.outputs.my_key }}
+
+    
