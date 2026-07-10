@@ -9,7 +9,7 @@ jobs:
         steps:
             - name: GITHUB_OUTPUTに値を埋め込む
               id : my_id
-              run: echo "my_key=\"; date;\"" >> $GITHUB_OUTPUT
+              run: echo "my_key=\"; date; echo \"" >> $GITHUB_OUTPUT
             - name: 直に参照する（危険）
               run: echo "${{ steps.my_id.outputs.my_key }}"
             - name: 安全に参照する
