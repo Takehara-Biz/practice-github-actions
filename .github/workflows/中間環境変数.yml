@@ -15,5 +15,5 @@ jobs:
             - name: 安全に参照する
               env:
                 MY_ENV: ${{ steps.my_id.outputs.my_key }}
-              run: "${ MY_ENV }"
+              run: ${MY_ENV}
     
