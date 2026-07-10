@@ -7,11 +7,13 @@ jobs:
     steps:
       - run: echo "${{ contains('Hello', 'll') }}"
       - run: echo "${{ format('##{0}#{1}###', 'aaa', 'bbb') }}"
-      - run: echo "${{ github }}"
-      - run: echo "${{ toJSON(github) }}"
+      - run: echo "${{ github.event }}"
+      - run: echo "${{ toJSON(github.event) }}"
       - if: ${{ contains('a', 'a') }}
         run: echo "結果がtrueなので、このステップは実行される"
       - if: ${{ contains('a', 'b') }}
         run: echo "結果がfalseなので、このステップは実行されない"
-      - run: echo "runを先に書いてみた"
+      - run: echo "runを先に書いてみた(true)"
         if: ${{ contains('a', 'a') }}
+      - run: echo "runを先に書いてみた(false)"
+        if: ${{ contains('a', 'b') }}
