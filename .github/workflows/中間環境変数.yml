@@ -11,13 +11,8 @@ jobs:
               id : my_id
               run: echo "my_key=; date;" >> $GITHUB_OUTPUT
             - name: 直に参照する（危険）
-              run: "${{ steps.my_id.outputs.my_key }}"
+              run: echo "${{ steps.my_id.outputs.my_key }}"
             - name: 安全に参照する
               env:
                 MY_ENV: ${{ steps.my_id.outputs.my_key }}
-              run: "${MY_ENV}"
-            - name: ダブルクォーテーションを忘れた場合
-              env:
-                MY_ENV: ${{ steps.my_id.outputs.my_key }}
-              run: "${MY_ENV}"
-    
+              run: echo "${MY_ENV}"
