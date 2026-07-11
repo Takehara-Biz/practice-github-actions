@@ -1,6 +1,6 @@
-name: Context and Environment Variables
+name: 3-1 Context and Environment Variables
 description: Try to use context and environment variables of github actions
-on: push
+on: workflow_dispatch
 env:
   EXAMPLE: Defined by workflow level
 jobs:
