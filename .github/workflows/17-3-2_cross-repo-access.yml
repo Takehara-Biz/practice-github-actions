@@ -16,7 +16,7 @@ jobs:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.PRIVATE_KEY }}
           repositories: ${{ secrets.TARGET_REPO }}
-          owner: ${{ github.repository_owner }}
+          # owner: ${{ github.repository_owner }}
       - uses: actions/checkout@v4
         with:
           repository: ${{ github.repository_owner}}/${{env.TARGET_REPO}}
