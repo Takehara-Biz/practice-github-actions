@@ -1,6 +1,6 @@
 name: 4-2 CI
 description: Node.jsのプログラムのCI用ワークフロー
-on: push
+on: workflow_dispatch
 jobs:
   ci:
     runs-on: ubuntu-latest
