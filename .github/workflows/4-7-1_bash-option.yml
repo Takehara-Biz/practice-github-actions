@@ -11,3 +11,4 @@ jobs:
       - run: cat no-existance.txt | wc -l
       - shell: bash
         run: cat no-existance.txt | wc -l
+        # 失敗したら"Enable debug logging"をオンにして再実行すると、bashコマンドのオプションの違いが分かります。

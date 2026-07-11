@@ -1,10 +1,9 @@
-name: Cache
-on: push
+name: 5-8 Cache
+on: workflow_dispatch
 jobs:
   use-cache:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - uses: actions/cache@v4                         # キャッシュの復元と保存
         with:
           key: key123 # キャッシュキー

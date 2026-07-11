@@ -1,6 +1,6 @@
-name: Logging
+name: 5-2 Logging
 description: This workflow demonstrates logging in GitHub Actions.
-on: push
+on: workflow_dispatch
 jobs:
   logging:
     runs-on: ubuntu-latest
