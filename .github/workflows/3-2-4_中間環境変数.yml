@@ -5,7 +5,7 @@ jobs:
   print-context:
     runs-on: ubuntu-latest
     steps:
-      - name: GITHUB_OUTPUTを利用して、危険な文字列を埋め込む。埋め込んだ文字列は、「steps.<ステップID>.outputs.<NAME>」で参照可能。
+      - name: 環境変数GITHUB_OUTPUTを利用して、危険な文字列を埋め込む。埋め込んだ文字列は、コンテキスト「steps.<ステップID>.outputs.<NAME>」で参照可能。
         id: my_id
         run: echo "my_key=\"; date; echo \"" >> $GITHUB_OUTPUT
       - name: 直に参照する（evalのように解釈されてしまう）
