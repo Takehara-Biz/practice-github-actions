@@ -1,5 +1,8 @@
 name: 4-7-1 Bash option
 on: workflow_dispatch
+#defaults:
+#  run:
+#    shell: bash
 jobs:
   bash-option:
     runs-on: ubuntu-latest
