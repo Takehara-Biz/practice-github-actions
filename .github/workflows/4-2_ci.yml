@@ -1,4 +1,4 @@
-name: CI
+name: 4-2 CI
 description: Node.jsのプログラムのCI用ワークフロー
 on: push
 jobs:
