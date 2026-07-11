@@ -22,5 +22,5 @@ jobs:
           repository: ${{ github.repository_owner}}/${{env.TARGET_REPO}}
           path: ${{ env.TARGET_REPO }}
           token: ${{ steps.create.outputs.token }}
-          # ref: main
+          ref: main
       - run: cat "${TARGET_REPO}/README.md"
