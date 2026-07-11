@@ -5,6 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 1
     steps:
-      - run: cat no-existance.txt | grep "aaa" || true
+      - run: cat no-existance.txt | wc -l
       - shell: bash
-        run: cat no-existance.txt | grep "bbb" || true
+        run: cat no-existance.txt | wc -l
