@@ -1,4 +1,4 @@
-name: 中間環境変数の実験
+name: 3-2-4 中間環境変数の実験
 description: そのまま解釈されると危険な文字列を様々な方法で参照してみたワークフロー
 on: workflow_dispatch
 jobs:
