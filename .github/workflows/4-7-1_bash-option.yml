@@ -1,0 +1,10 @@
+name: 4-7-1 Bash option
+on: workflow_dispatch
+jobs:
+  bash-option:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - run: cat no-existance.txt | grep "aaa"
+      - shell: bash
+        run: cat no-existance.txt | grep "aaa"
