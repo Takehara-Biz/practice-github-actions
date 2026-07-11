@@ -11,8 +11,11 @@ jobs:
       - run: echo "github.run_id - ${{ github.run_id }}"
       - run: echo "github.event_name - ${{ github.event_name }}"
       - run: echo "github.event - ${{ github.event }}"
-      - run: echo "github.event.repository - ${{ github.event.repository }}"
+      - run: echo "github.event.repository - ${{ toJSON(github.event.repository) }}"
       - run: echo "github.event.repository.updated_at - ${{ github.event.repository.updated_at }}"
+      - run: echo "github.event.runner - ${{ toJSON(runner) }}"
+      - run: echo "github.event.runner.name - ${{ runner.name }}"
+      - run: echo "github.event.runner.os - ${{ runner.os }}"
   print-default-env:
     runs-on: ubuntu-latest
     steps:
