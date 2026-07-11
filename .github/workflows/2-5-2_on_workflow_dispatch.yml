@@ -1,20 +1,24 @@
 name: 2-5-2 On Workflow Dispatch
 on:
-    workflow_dispatch:
-        inputs:
-            greeting:
-                type: string
-                default: Hello
-                required: true
-                description: A cheerful word
-            log-level:
-                type: choice
-                options:
-                    - info
-                    - warn
-                    - error
+  workflow_dispatch:
+    inputs:
+      greeting:
+        type: string
+        default: Hello
+        required: true
+        description: A cheerful word
+      log-level:
+        type: choice
+        options:
+          - info
+          - warn
+          - error
+defaults:
+  run:
+    shell: bash
 jobs:
-    run:
-        runs-on: ubuntu-latest
-        steps:
-            - run: echo "${{ inputs.greeting }} and ${{ inputs.log-level }}"
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - run: echo "${{ inputs.greeting }} and ${{ inputs.log-level }}"
