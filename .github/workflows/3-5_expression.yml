@@ -7,8 +7,8 @@ jobs:
     steps:
       - run: echo "${{ contains('Hello', 'll') }}"
       - run: echo "${{ format('##{0}#{1}###', 'aaa', 'bbb') }}"
-      - run: echo "${{ github.event }}"
-      - run: echo "${{ toJSON(github.event) }}"
+      - run: echo "${{ github.event.repository }}"
+      - run: echo "${{ toJSON(github.event.repository) }}"
       - if: ${{ contains('a', 'a') }}
         run: echo "結果がtrueなので、このステップは実行される"
       - if: ${{ contains('a', 'b') }}
