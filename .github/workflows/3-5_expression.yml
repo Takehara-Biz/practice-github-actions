@@ -1,6 +1,6 @@
-name: expression
+name: 3-5 expression
 description: 様々なexpressionを試すワークフロー
-on: push
+on: workflow_dispatch
 jobs:
   practice-expression:
     runs-on: ubuntu-latest
