@@ -1,6 +1,8 @@
-name: 4-8-1 Concurrency
+name: 4-8-2 Concurrency
 on: workflow_dispatch
-concurrency: ${{ github.workflow }}
+concurrency: 
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
 defaults:
   run:
     shell: bash
