@@ -1,5 +1,5 @@
-name: Artifact
-on: push
+name: 5-9 Artifact
+on: workflow_dispatch
 jobs:
   upload:
     runs-on: ubuntu-latest

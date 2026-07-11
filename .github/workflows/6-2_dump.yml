@@ -1,5 +1,5 @@
-name: Dump
-on: push
+name: 6-2 Dump
+on: workflow_dispatch
 jobs:
   debug:
     runs-on: ubuntu-latest

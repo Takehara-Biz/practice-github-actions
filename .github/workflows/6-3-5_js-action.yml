@@ -1,5 +1,5 @@
-name: JS Action
-on: push
+name: 6-3-5 JS Action
+on: workflow_dispatch
 jobs:
   use-js-action:
     runs-on: ubuntu-latest
