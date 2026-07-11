@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 1
     steps:
-      - run: sleep 5
+      - run: sleep 6
       - run: echo "Hello, world"
       - uses: actions/checkout@v4
